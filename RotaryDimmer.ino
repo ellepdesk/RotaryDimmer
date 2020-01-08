@@ -92,14 +92,19 @@ void setup() {
   analogWriteFreq(800);
 }
 
+
 void loop() {
+  const int iir_factor = 128;
+  int output, setpoint = 0;
   if (r.process())
   {
     int value = r.get();
     Serial.print(value);
-    int output = (1 << value) -1; // 2^n-1
-    Serial.print(" ");
-    Serial.println(output);
     analogWrite(pin_pwm, output);
+    setpoint = (1 << value) -1; // 2^n-1
   }
+  output = ((output * iir_factor - 1) + setpoint) / iir_factor;
+  //Serial.print(" ");
+  //Serial.println(output);
+  delay(100);
 }
