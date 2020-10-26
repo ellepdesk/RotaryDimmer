@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="mini-default.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .center {text-align: center;}
+            .row {justify-content: center;}
+
+        </style>
+        <title>Lamp</title>
+    </head>
+    <body>
+        <script src=jquery-3.5.1.min.js></script>
+        <script src=local.js defer="defer"></script>
+
+        <h1 class="center">Lamp</h1>
+        <div class="row">
+
+            <div class="card">
+                <div class="section dark center">
+                    intensity
+                </div>
+                <div class="section center">
+                    <input type="range" min="0" max="10" value="0" class="slider" id="intensity" autofocus>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
